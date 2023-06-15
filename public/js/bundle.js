@@ -2157,7 +2157,7 @@
     try {
       const res = await axios_default({
         method: "POST",
-        url: "http://localhost:3000/api/v1/users/login",
+        url: "/api/v1/users/login",
         data: {
           email,
           password
@@ -2177,7 +2177,7 @@
     try {
       const res = await axios_default({
         method: "GET",
-        url: "http://localhost:3000/api/v1/users/logout"
+        url: "/api/v1/users/logout"
       });
       if (res.data.status === "success") {
         location.reload(true);
@@ -2190,7 +2190,7 @@
 
   // public/js/updateSettings.js
   var updateSettings = async (data, type) => {
-    const url = type === "password" ? "http://localhost:3000/api/v1/users/updateMyPassword" : "http://localhost:3000/api/v1/users/updateMe";
+    const url = type === "password" ? "/api/v1/users/updateMyPassword" : "/api/v1/users/updateMe";
     try {
       const res = await axios_default({
         method: "PATCH",
@@ -2232,7 +2232,6 @@
   var bookBtn = document.getElementById("book-tour");
   if (mapBox) {
     const locations = JSON.parse(mapBox.dataset.locations);
-    console.log(locations);
     displayMap(locations);
   }
   if (loginForm) {
